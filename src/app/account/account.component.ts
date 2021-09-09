@@ -1,12 +1,11 @@
 import { Component, Input } from "@angular/core";
 import { LoggingService } from "../logging.service";
-import { AccountService } from "../new-account/account.service";
+import { AccountService } from "../account.service";
 
 @Component({
   selector: "app-account",
   templateUrl: "./account.component.html",
   styleUrls: ["./account.component.css"],
-  providers: [LoggingService],
 })
 export class AccountComponent {
   @Input() account: { name: string; status: string };
@@ -19,6 +18,6 @@ export class AccountComponent {
 
   onSetTo(status: string) {
     this.accountsService.updateStatus(this.id, status);
-    this.loggingService.logStatusChange(status);
+    // this.loggingService.logStatusChange(status);
   }
 }
